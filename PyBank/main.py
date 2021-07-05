@@ -17,10 +17,13 @@ with open(csvpath) as csvfile:
     csv_header = next(csvreader)
     
     row_count=0
+    net_value=0
 
     for row in csvreader:
         row_count += 1
+        net_value = net_value + int(row[1])
     
     print(f"Total Months: {row_count}")
+    print(f"Total $: {net_value}")
     
 
