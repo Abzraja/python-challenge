@@ -15,8 +15,12 @@ with open(csvpath) as csvfile:
     csvreader = csv.reader(csvfile, delimiter=',')
 
     csv_header = next(csvreader)
-    print (csv_header)
+    
+    row_count=0
+
     for row in csvreader:
-        print(row)
-        
+        row_count += 1
+    
+    print(row_count)
+    
 
