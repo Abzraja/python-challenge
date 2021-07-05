@@ -21,6 +21,6 @@ with open(csvpath) as csvfile:
     for row in csvreader:
         row_count += 1
     
-    print(row_count)
+    print(f"Total Months: {row_count}")
     
 
