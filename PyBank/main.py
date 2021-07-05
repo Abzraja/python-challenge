@@ -14,8 +14,9 @@ with open(csvpath) as csvfile:
     # CSV reader specifies delimiter and variable that holds contents
     csvreader = csv.reader(csvfile, delimiter=',')
 
-    #test print
-    print(csvreader)
-
-
+    csv_header = next(csvreader)
+    print (csv_header)
+    for row in csvreader:
+        print(row)
+        
 
