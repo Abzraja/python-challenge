@@ -4,6 +4,9 @@ import os
 #import module that allows us to read csv files
 import csv
 
+#import statistics module and mean function - got from (https://www.guru99.com/find-average-list-python.html)
+from statistics import mean
+
 #reference path to CSV data file
 csvpath = os.path.join('.', 'Resources', 'budget_data.csv')
 
@@ -18,7 +21,7 @@ with open(csvpath) as csvfile:
     
     row_count=0
     total_net_value=0
-
+    change = []
     for row in csvreader:
         row_count += 1
         total_net_value = total_net_value + int(row[1])
@@ -27,9 +30,12 @@ with open(csvpath) as csvfile:
         current_value = int(row[1])
         #read next line value as intger (I got this code from - https://docs.python.org/3/library/csv.html)
         next_value = int(next(csvreader)[1])
+        
 
         #add next line value from current line value and store in change variable
-        change = current_value + next_value
+        change.append(current_value + next_value)
+
+    avg = mean(change)
 
 
     print(f"Total Months: {row_count}")
@@ -37,5 +43,6 @@ with open(csvpath) as csvfile:
     print(f"Current Value: {current_value}")
     print(f"Next Value: {next_value}")
     print(f"Change: {change}")
+    print(f"Average: {avg}")
     
 
