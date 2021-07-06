@@ -29,9 +29,8 @@ with open(csvpath) as csvfile:
         total_net_value = total_net_value + int(row[1])
         
         change = int(row[1]) - change
-        if change != int(row[1]):
-            change_list.append(change)
-            change = int (row[1])
+        change_list.append(change)
+        change = int (row[1])
          
         #read current row value from profit/loss column
         #current_value = int(row[1])
@@ -41,9 +40,11 @@ with open(csvpath) as csvfile:
         #add next line value from current line value and store in change variable
         #change.append(current_value + next_value)
 
+    #drop first value in list as not a change
+    change_list.pop(0)
     avg = mean(change_list)
-
-
+    
+    
     print(f"Total Months: {row_count}")
     print(f"Total $: {total_net_value}")
     #print(f"Current Value: {current_value}")
