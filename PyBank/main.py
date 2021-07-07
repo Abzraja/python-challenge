@@ -19,37 +19,32 @@ with open(csvpath) as csvfile:
 
     csv_header = next(csvreader)
     
+    #set initial variables
     row_count=0
     total_net_value=0
-    change_list = []
-    change = 0
+    difference_list = []
+    previous_value = 0
 
+    #iterate through the rows
     for row in csvreader:
         row_count += 1
         total_net_value = total_net_value + int(row[1])
+
+        #read value from current row and subtract from previous value and append into list
+        difference_list.append(int(row[1]) - previous_value)
         
-        change = int(row[1]) - change
-        change_list.append(change)
-        change = int (row[1])
-         
-        #read current row value from profit/loss column
-        #current_value = int(row[1])
-        #read next line value as intger (I got this code from - https://docs.python.org/3/library/csv.html)
-        #next_value = int(next(csvreader)[1])
+        #set the value in current row as previous_value for next row
+        previous_value = int (row[1])
 
-        #add next line value from current line value and store in change variable
-        #change.append(current_value + next_value)
-
-    #drop first value in list as not a change
-    change_list.pop(0)
-    avg = mean(change_list)
+    #drop first value in list as first value had nothing to subtract from
+    difference_list.pop(0)
+    #use mean function from statistics module to get mean of list and store in avg variable
+    avg = mean(difference_list)
     
     
     print(f"Total Months: {row_count}")
     print(f"Total $: {total_net_value}")
-    #print(f"Current Value: {current_value}")
-    #print(f"Next Value: {next_value}")
-    print(f"Change list: {change_list}")
+    print(f"Change list: {difference_list}")
     print(f"Average: {avg}")
     
 
