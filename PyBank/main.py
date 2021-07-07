@@ -23,6 +23,7 @@ with open(csvpath) as csvfile:
     row_count=0
     total_net_value=0
     difference_list = []
+    month_list = []
     previous_value = 0
 
     #iterate through the rows
@@ -33,18 +34,36 @@ with open(csvpath) as csvfile:
         #read value from current row and subtract from previous value and append into list
         difference_list.append(int(row[1]) - previous_value)
         
+        #read value from current row into month_list
+        month_list.append(row[0])
+        
         #set the value in current row as previous_value for next row
         previous_value = int (row[1])
 
-    #drop first value in list as first value had nothing to subtract from
+
+    #drop first value in list as first value had nothing to subtract from and will negatively influence our mean
     difference_list.pop(0)
+    month_list.pop(0)
     #use mean function from statistics module to get mean of list and store in avg variable
     avg = mean(difference_list)
+
+    #zip lists together
+    zipped_list = lambda: zip(month_list,difference_list)
     
+    #find max row in difference list
+    x = [x for x in zipped_list() if max(difference_list) in x][0]
+
+    #find min row in difference list    
+    y = [y for y in zipped_list() if min(difference_list) in y][0]
+    
+
     
     print(f"Total Months: {row_count}")
     print(f"Total $: {total_net_value}")
     print(f"Change list: {difference_list}")
     print(f"Average: {avg}")
+    print(f"Greatest Increase in Profits: {x[0]} {x[1]}")
+    print(f"Greatest Decrease in Profits: {y[0]} {y[1]}")
+    
     
 
