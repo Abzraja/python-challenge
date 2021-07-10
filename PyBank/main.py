@@ -50,28 +50,32 @@ with open(csvpath) as csvfile:
     #zip lists together
     #zipped_list = lambda: zip(month_list,difference_list) - would not iterate through 2 iterations when placed after each other. had to use lambda to overcome this.
     zipped_list = zip(difference_list,month_list)
+    
     #create dict out of zipped list (tuples)
     dict = dict(zipped_list)
 
     #print(dict)
 
-    #find max value in difference list
-    max_value = max(difference_list)
-    print(max_value)
+    #find max value in dictionary
+    #max_value = max(dict)
+    #print(max_value)
 
-    #find min value in difference list
-    min_value = min(difference_list)
-    print(min_value)
+    #find min value in dictionary
+    #min_value = min(dict)
+    #print(min_value)
 
-    
-    #for difference_list in dict:
-       # if max(difference_list) 
+    #iterate through dictionary to find max_key_value and print corresponding value and key
+    for max_key_value in dict:
+        if max_key_value == max(dict):
+            print(dict[max_key_value],max_key_value)
+
+    #iterate through dictionary to find min_key_value and print corresponding value and key
+    for min_key_value in dict:
+        if min_key_value == min(dict):
+            print(dict[min_key_value],min_key_value)
+
         
     #print(month_list)
-
-    #iterate through dictionary
-    #max_value = [x for x in dict in (zipped_list) if max(difference_list)]
-    #print(max_value)
     
     #find max row in difference list
     #x = [x for x in zipped_list() if max(difference_list) in x][0]
@@ -81,10 +85,10 @@ with open(csvpath) as csvfile:
     
 
     
-    print(f"Total Months: {row_count}")
-    print(f"Total $: {total_net_value}")
-    print(f"Change list: {difference_list}")
-    print(f"Average: {avg}")
+    #print(f"Total Months: {row_count}")
+    #print(f"Total $: {total_net_value}")
+    #print(f"Change list: {difference_list}")
+    #print(f"Average: {avg}")
     #print(f"Greatest Increase in Profits: {x[0]} {x[1]}")
     #print(f"Greatest Decrease in Profits: {y[0]} {y[1]}")
     
