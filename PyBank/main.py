@@ -59,23 +59,25 @@ with open(csvpath) as csvfile:
     #iterate through dictionary to find max_key_value and print corresponding value and key
     for max_key_value in month_diff_dict:
         if max_key_value == max(month_diff_dict):
-            max_m = (month_diff_dict[max_key_value],max_key_value)
+            #max_m = (month_diff_dict[max_key_value],max_key_value)
+            max_month = (month_diff_dict[max_key_value])
+            max_value = max_key_value
 
     #iterate through dictionary to find min_key_value and print corresponding value and key
     for min_key_value in month_diff_dict:
         if min_key_value == min(month_diff_dict):
-            min_m = (month_diff_dict[min_key_value],min_key_value)
+            min_month = (month_diff_dict[min_key_value])
+            min_value = min_key_value
 
-    
-    #k = [k for k in month_diff_dict if k == max(month_diff_dict)]
-    #print(k[])
-    #print(month_list)
-    
+   #Print report
+
+    print("Financial Analysis")
+    print("----------------------------")
     print(f"Total Months: {row_count}")
     print(f"Total $: {total_net_value}")
     print(f"Average: {avg}")
-    print(f"Greatest Increase in Profits: {max_m}")
-    print(f"Greatest Decrease in Profits: {min_m}")
+    print(f"Greatest Increase in Profits: {max_month} ($ {max_value})")
+    print(f"Greatest Decrease in Profits: {min_month} ($ {min_value})")
     
     
 
