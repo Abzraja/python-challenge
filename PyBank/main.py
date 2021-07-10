@@ -53,9 +53,21 @@ with open(csvpath) as csvfile:
     #create dict out of zipped list (tuples)
     dict = dict(zipped_list)
 
-    print(dict)
+    #print(dict)
 
+    #find max value in difference list
+    max_value = max(difference_list)
+    print(max_value)
 
+    #find min value in difference list
+    min_value = min(difference_list)
+    print(min_value)
+
+    
+    #for difference_list in dict:
+       # if max(difference_list) 
+        
+    #print(month_list)
 
     #iterate through dictionary
     #max_value = [x for x in dict in (zipped_list) if max(difference_list)]
