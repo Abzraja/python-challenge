@@ -56,28 +56,36 @@ with open(csvpath) as csvfile:
     #create dict out of zipped list (tuples)
     month_diff_dict = dict(zipped_list)
 
-    #iterate through dictionary to find max_key_value and print corresponding value and key
+    #iterate through dictionary to find max_key_value and corresponding value
     for max_key_value in month_diff_dict:
         if max_key_value == max(month_diff_dict):
             #max_m = (month_diff_dict[max_key_value],max_key_value)
             max_month = (month_diff_dict[max_key_value])
             max_value = max_key_value
 
-    #iterate through dictionary to find min_key_value and print corresponding value and key
+    #iterate through dictionary to find min_key_value and corresponding value
     for min_key_value in month_diff_dict:
         if min_key_value == min(month_diff_dict):
             min_month = (month_diff_dict[min_key_value])
             min_value = min_key_value
 
-   #Print report
+   #set a function for printing the report
 
-    print("Financial Analysis")
-    print("----------------------------")
-    print(f"Total Months: {row_count}")
-    print(f"Total $: {total_net_value}")
-    print(f"Average: {avg}")
-    print(f"Greatest Increase in Profits: {max_month} ($ {max_value})")
-    print(f"Greatest Decrease in Profits: {min_month} ($ {min_value})")
+def financial_analysis():
     
+    return("Financial Analysis\n" + 
+    "----------------------------\n" +
+    f"Total Months: {row_count}\n" +
+    f"Total $: {total_net_value}\n" +
+    f"Average: {avg}\n" +
+    f"Greatest Increase in Profits: {max_month} ($ {max_value})\n" +
+    f"Greatest Decrease in Profits: {min_month} ($ {min_value})")
     
+print(financial_analysis())
+    
+    #Specify the file to write to
+text_file_path = os.path.join(".", "analysis", "financial_analysis.txt")
 
+# Open the file using "write" mode. Specify the variable to hold the contents
+with open(text_file_path, 'w') as f:
+    f.write(financial_analysis())
