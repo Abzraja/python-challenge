@@ -57,29 +57,39 @@ with open(csvpath) as csvfile:
     month_diff_dict = dict(zipped_list)
 
     #iterate through dictionary to find max_key_value and corresponding value
-    for max_key_value in month_diff_dict:
-        if max_key_value == max(month_diff_dict):
-            #max_m = (month_diff_dict[max_key_value],max_key_value)
-            max_month = (month_diff_dict[max_key_value])
-            max_value = max_key_value
+    #for max_key_value in month_diff_dict:
+       # if max_key_value == max(month_diff_dict):
+          #  max_month = month_diff_dict[max_key_value]
+          #  max_value = max_key_value
+
+
+max_key_value = [max_key_value for max_key_value in month_diff_dict if max_key_value == max(month_diff_dict)][0]
+max_month = month_diff_dict[max_key_value]
+
 
     #iterate through dictionary to find min_key_value and corresponding value
-    for min_key_value in month_diff_dict:
-        if min_key_value == min(month_diff_dict):
-            min_month = (month_diff_dict[min_key_value])
-            min_value = min_key_value
+    #for min_key_value in month_diff_dict:
+        #if min_key_value == min(month_diff_dict):
+            #min_month = month_diff_dict[min_key_value]
+            #min_value = min_key_value
+
+min_key_value = [min_key_value for min_key_value in month_diff_dict if min_key_value == min(month_diff_dict)][0]
+min_month = month_diff_dict[min_key_value]
+
 
    #set a function for printing the report
 
 def financial_analysis():
     
-    return("Financial Analysis\n" + 
-    "----------------------------\n" +
-    f"Total Months: {row_count}\n" +
-    f"Total $: {total_net_value}\n" +
-    f"Average: {avg}\n" +
-    f"Greatest Increase in Profits: {max_month} ($ {max_value})\n" +
-    f"Greatest Decrease in Profits: {min_month} ($ {min_value})")
+    return ("Financial Analysis\n" + 
+        "----------------------------\n" +
+        f"Total Months: {row_count}\n" +
+        f"Total $: {total_net_value}\n" +
+        f"Average: {avg}\n" +
+        f"Greatest Increase in Profits: {max_month} (${max_key_value})\n" +
+        f"Greatest Decrease in Profits: {min_month} (${min_key_value})"
+    )
+    
     
 print(financial_analysis())
     
