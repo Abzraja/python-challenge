@@ -40,13 +40,10 @@ with open(csvpath) as csvfile:
 
 #print output to terminal
 
-print(f"Election Results\n" +
-        "-------------------------\n" +
-        f"Total Votes: {total_vote_count}\n" +
-        "-------------------------")
+def candidate_results():
 
-#iterate through each key (candidate) in candidate_vote dictionary
-for key, value in candidate_votes_dict.items():
+    #iterate through each key (candidate) in candidate_vote dictionary
+    for key, value in candidate_votes_dict.items():
             #calculate the vote percentage for each key(candidate) by taking the value of the key and dividing by total_vote_count
             candidate_percent = value / total_vote_count * 100
             #round the candidate_percent value to 2 decimal places
@@ -59,8 +56,18 @@ for key, value in candidate_votes_dict.items():
 #find max value in dictionary and return corresponding key. the max value is the greatest number of votes, therefore the key is the winner
 winner = max(candidate_votes_dict, key=candidate_votes_dict.get)
 
-#print the winner
+def election_results_report_header():
+    return(f"Election Results\n" +
+        "-------------------------\n" +
+        f"Total Votes: {total_vote_count}\n" +
+        "-------------------------")
 
-print("-------------------------\n" +
-    f"Winner: {winner}\n"
-    "-------------------------")
+    
+def election_results_winner():
+        return("-------------------------\n" +
+        f"Winner: {winner}\n"
+        "-------------------------")
+
+print(election_results_report_header())
+candidate_results()
+print(election_results_winner())
