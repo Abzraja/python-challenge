@@ -71,3 +71,14 @@ def election_results_winner():
 print(election_results_report_header())
 candidate_results()
 print(election_results_winner())
+
+
+#output to text file
+
+#Specify the file to write to
+text_file_path = os.path.join(".", "analysis", "election_results.txt")
+
+# Open the file using "write" mode. Specify the variable to hold the contents
+with open(text_file_path, 'w') as f:
+    f.write(election_results_report_header())
+    f.write(election_results_winner())
