@@ -49,26 +49,33 @@ with open(csvpath) as csvfile:
 
 #set a function for printing the report
 
-def election_results():
+
+
+#def candidate_results():
     
-    return ("Election Results\n" + 
-        "-------------------------\n" +
-        f"Total Votes: {total_vote_count}\n" +
-        "-------------------------\n")
-
-for key, value in candidate_votes_dict.items() :
-    candidate_percent = value / total_vote_count * 100
-    candidate_percent = round(candidate_percent,2)
-    candidate_percent = "{:.3f}".format(candidate_percent)
-    print (f"{key}: {candidate_percent}% ({value})")
+    for key, value in candidate_votes_dict.items() :
+            candidate_percent = value / total_vote_count * 100
+            candidate_percent = round(candidate_percent,2)
+            candidate_percent = "{:.3f}".format(candidate_percent)
+            print(f"{key}: {candidate_percent}% ({value})")
 
 
+#find max value in dictionary and return corresponding key. the max value is the greatest number of votes, therefore the key is the winner
+winner = max(candidate_votes_dict, key=candidate_votes_dict.get)
 
-def candidate_results():
-   for key, value in candidate_votes_dict.items() :
-    return key, value
+print(winner)
+
+#print(candidate_results())
 
 
-#print(candidate_results())   
+#def election_results():
+    
+ #   return ("Election Results\n" + 
+  #      "-------------------------\n" +
+   #     f"Total Votes: {total_vote_count}\n" +
+    #    "-------------------------\n" +
+    #candidate_results()
+    #)
+  
     
 #print(election_results())
