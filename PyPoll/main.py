@@ -18,3 +18,12 @@ with open(csvpath) as csvfile:
     csvreader = csv.reader(csvfile, delimiter=',')
 
     csv_header = next(csvreader)
+
+
+#set initial variable
+    #vote count = to number of rows in csv
+    vote_count=0
+
+    #iterate through the rows
+    for row in csvreader:
+        vote_count += 1
