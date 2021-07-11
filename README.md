@@ -14,6 +14,18 @@
 
 ## PyBank
 ![PyBank Image](https://s17026.pcdn.co/wp-content/uploads/sites/9/2018/08/Business-bank-account-e1534519443766.jpeg)
+
+## Checklist
+Your task is to create a Python script that analyzes the records to calculate each of the following:
+- [x] The total number of months included in the dataset
+- [x] The net total amount of "Profit/Losses" over the entire period
+- [x] Calculate the changes in "Profit/Losses" over the entire period, then find the average of those changes
+- [x] The greatest increase in profits (date and amount) over the entire period
+- [x] The greatest decrease in profits (date and amount) over the entire period
+- [x] As an example, your analysis should look similar to the one below:
+- [x] In addition, your final script should both print the analysis to the terminal and export a text file with the results.
+
+
 ### Issues
 
 
@@ -22,4 +34,7 @@
 
 ## PyPoll
 ![PyPoll Image](https://images-na.ssl-images-amazon.com/images/I/51cOM2ZPaoL.png)
+
+## Checklist
+
 ### Issues
