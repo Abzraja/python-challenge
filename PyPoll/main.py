@@ -22,6 +22,7 @@ with open(csvpath) as csvfile:
     #total_vote_count to count the number of rows
     total_vote_count = 0
     candidate_votes_dict = {}
+
   # iterate through the rows
     for row in csvreader:
         
@@ -37,37 +38,29 @@ with open(csvpath) as csvfile:
         #if the value in candidate column is already a key in dictionary add +1 to it's value
         candidate_votes_dict[row[2]] += 1
 
+#print output to terminal
 
+print(f"Election Results\n" +
+        "-------------------------\n" +
+        f"Total Votes: {total_vote_count}\n" +
+        "-------------------------")
 
-#set a function for printing the report
-
-
-
-#def candidate_results():
-
-    for key, value in candidate_votes_dict.items() :
+#iterate through each key (candidate) in candidate_vote dictionary
+for key, value in candidate_votes_dict.items():
+            #calculate the vote percentage for each key(candidate) by taking the value of the key and dividing by total_vote_count
             candidate_percent = value / total_vote_count * 100
+            #round the candidate_percent value to 2 decimal places
             candidate_percent = round(candidate_percent,2)
+            #show 3 figures after decimal as in the example on GitLab
             candidate_percent = "{:.3f}".format(candidate_percent)
+            #for each key print the key, candidate_percent and value
             print(f"{key}: {candidate_percent}% ({value})")
-
 
 #find max value in dictionary and return corresponding key. the max value is the greatest number of votes, therefore the key is the winner
 winner = max(candidate_votes_dict, key=candidate_votes_dict.get)
 
-print(winner)
+#print the winner
 
-#print(candidate_results())
-
-
-#def election_results():
-    
- #   return ("Election Results\n" + 
-  #      "-------------------------\n" +
-   #     f"Total Votes: {total_vote_count}\n" +
-    #    "-------------------------\n" +
-    #candidate_results()
-    #)
-  
-    
-#print(election_results())
+print("-------------------------\n" +
+    f"Winner: {winner}\n"
+    "-------------------------")
