@@ -58,7 +58,7 @@ Your task is to create a Python script that analyzes the votes and calculates ea
 * then i had to google out and figure out how to split them onto one line each.
 * This whole assignment took way longer than it should have. 
 
-##Conclusion
+## Conclusion
 While I believe I have aced the assignment it took a lot of hard work and I think even though I managed to figure it out, it took much longer than it should have. I am still not comfortable with loops and nested loops in python or list an dictionary comprehensions when it comes to loops.
 
 Phew! all done.
