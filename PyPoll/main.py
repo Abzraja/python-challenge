@@ -22,14 +22,19 @@ with open(csvpath) as csvfile:
 
 #set initial variable
     #vote count = to number of rows in csv
-    vote_count=0
+    vote_count = 0
+    candidate_vote_count = 0
     candidate_list = []
+    candidate_vote_list = []
 
     #iterate through the rows
     for row in csvreader:
         vote_count += 1
         if row[2] not in candidate_list:
             candidate_list.append(row[2])
+         
+        
+                
 
 #set a function for printing the report
 
@@ -45,3 +50,5 @@ def election_results():
 print(election_results())
 
 print(candidate_list)
+print(candidate_vote_count)
+print(candidate_vote_list)
