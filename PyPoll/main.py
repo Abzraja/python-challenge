@@ -4,9 +4,6 @@ import os
 #import module that allows us to read csv files
 import csv
 
-#import statistics module and mean function - got from (https://www.guru99.com/find-average-list-python.html)
-from statistics import mean
-
 #reference path to CSV data file
 csvpath = os.path.join('.', 'Resources', 'election_data.csv')
 
@@ -20,30 +17,25 @@ with open(csvpath) as csvfile:
     csv_header = next(csvreader)
 
 
-#set initial variable
+#set initial variables
     
-    #vote count = to number of rows in csv
+    #total_vote_count to count the number of rows
     total_vote_count = 0
-    khan_count = 0
     candidate_votes_dict = {}
   # iterate through the rows
     for row in csvreader:
         
-        #for each row add 1 to the total_vote_count
+        #for each row add 1 to the total_vote_count to find total number of rows
         total_vote_count += 1
         
         #if value in csv candidate column is not in already in candidate_votes_dict dictionary 
         if row[2] not in candidate_votes_dict:
             
-            #also add the value to a dictionary as a key and give it a value of 0
+            #add the value to a dictionary as a key and give it a value of 0
             candidate_votes_dict[row[2]] = 0
         
-        #for each key in in vote_count dictionary add +1 to corresonpending key
+        #if the value in candidate column is already a key in dictionary add +1 to it's value
         candidate_votes_dict[row[2]] += 1
-
-    #candidate_percent = candidate_votes_dict["Khan"] / total_vote_count * 100
-    #candidate_percent = round(candidate_percent,2)
-
 
 
 
@@ -52,7 +44,7 @@ with open(csvpath) as csvfile:
 
 
 #def candidate_results():
-    
+
     for key, value in candidate_votes_dict.items() :
             candidate_percent = value / total_vote_count * 100
             candidate_percent = round(candidate_percent,2)
