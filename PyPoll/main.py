@@ -21,15 +21,28 @@ with open(csvpath) as csvfile:
 
 
 #set initial variable
+    
     #vote count = to number of rows in csv
-    vote_count=0
-    candidate_list = []
-
-    #iterate through the rows
+    total_vote_count = 0
+    khan_count = 0
+    candidate_votes_dict = {}
+  # iterate through the rows
     for row in csvreader:
-        vote_count += 1
-        if row[2] not in candidate_list:
-            candidate_list.append(row[2])
+        
+        #for each row add 1 to the total_vote_count
+        total_vote_count += 1
+        
+        #if value in csv candidate column is not in already in candidate_votes_dict dictionary 
+        if row[2] not in candidate_votes_dict:
+            
+            #also add the value to a dictionary as a key and give it a value of 0
+            candidate_votes_dict[row[2]] = 0
+        
+        #for each key in in vote_count dictionary add +1 to corresonpending key
+        candidate_votes_dict[row[2]] += 1
+
+    print(candidate_votes_dict)
+
 
 #set a function for printing the report
 
@@ -37,11 +50,9 @@ def election_results():
     
     return ("Election Results\n" + 
         "-------------------------\n" +
-        f"Total Votes: {vote_count}\n" +
+        f"Total Votes: {total_vote_count}\n" +
         "-------------------------\n"
     )
     
     
 print(election_results())
-
-print(candidate_list)
