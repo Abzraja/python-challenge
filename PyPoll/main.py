@@ -27,3 +27,17 @@ with open(csvpath) as csvfile:
     #iterate through the rows
     for row in csvreader:
         vote_count += 1
+
+
+#set a function for printing the report
+
+def election_results():
+    
+    return ("Election Results\n" + 
+        "-------------------------\n" +
+        f"Total Votes: {vote_count}\n" +
+        "-------------------------\n"
+    )
+    
+    
+print(election_results())
