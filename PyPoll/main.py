@@ -41,7 +41,10 @@ with open(csvpath) as csvfile:
         #for each key in in vote_count dictionary add +1 to corresonpending key
         candidate_votes_dict[row[2]] += 1
 
-    print(candidate_votes_dict)
+    candidate_percent = candidate_votes_dict["Khan"] / total_vote_count * 100
+    candidate_percent = round(candidate_percent,2)
+
+
 
 
 #set a function for printing the report
@@ -51,8 +54,18 @@ def election_results():
     return ("Election Results\n" + 
         "-------------------------\n" +
         f"Total Votes: {total_vote_count}\n" +
-        "-------------------------\n"
-    )
+        "-------------------------\n")
+
+for key, value in candidate_votes_dict.items() :
+    print (f"{key}: {candidate_percent}% ({value})")
+
+
+
+def candidate_results():
+   for key, value in candidate_votes_dict.items() :
+    return key, value
+
+
+#print(candidate_results())   
     
-    
-print(election_results())
+#print(election_results())
