@@ -40,13 +40,13 @@ with open(csvpath) as csvfile:
 #print output to terminal
 
 
-
+#create header function that will display report header
 def election_results_report_header():
     return(f"Election Results\n" +
         "-------------------------\n" +
         f"Total Votes: {total_vote_count}\n" +
         "-------------------------")
-
+#create candidate_results function that will output the candidate, vote %, and total votes the candidate received
 def candidate_results():
     results_list = []
     #iterate through each key (candidate) in candidate_vote dictionary
@@ -63,7 +63,7 @@ def candidate_results():
     return("\n".join(results_list))
     
     
-    
+#create footer function that will out the footer of the report with the winner of the election    
 def election_results_winner():
         #find max value in dictionary and return corresponding key. the max value is the greatest number of votes, therefore the key is the winner
         winner = max(candidate_votes_dict, key=candidate_votes_dict.get)
