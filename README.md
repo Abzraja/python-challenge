@@ -6,12 +6,11 @@ The purpose of the scripts is to demonstrate the use of for loops, if statments,
 ### PyBank
 <img src="Images/financial.jpg" width="400px">
 <br />
-<br />
+
 CSV file contains a column for date (month) and a column for profit/losses.
 <br />
 <img src="Images/pybank-csv.png" width="200px">
 
-<br />
 <br />
 
 #### What script does
@@ -26,15 +25,15 @@ Iterates over each line in the CSV file and outputs the following:
 The script produces the following output in a .txt file<br />
 <img src="Images/financial-output.png" width="400px">
 
-<br /><br />
+<br />
 
 ### PyPoll
 <img src="Images/poll.png" width="300px">
-<br /><br />
+<br />
 
 CSV file contains election data<br />
 <img src="Images/election-csv.png" width="200px"> 
-<br /><br />
+<br />
 
 #### What script does
 Iterates over each line in the CSV file and outputs the following:
@@ -49,7 +48,7 @@ The script produces the following output in a .txt file<br />
 <img src="Images/election-output.png" width="200px">
 
 
-<br /><br />
+<br />
 <hr />
 <br /><br />
 
